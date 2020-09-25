@@ -6,11 +6,12 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE,warning = FALSE,message = FALSE)
 ```
 
 Importing the data (from Kaggle: https://www.kaggle.com/lin0li/covid19testing)
-```{r echo=FALSE}
+
+```{r}
 library(readr)
 covid_df <- read_csv("covid19.csv")
 ```

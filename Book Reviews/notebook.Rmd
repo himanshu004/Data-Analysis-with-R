@@ -4,6 +4,12 @@ author: "Himanshu Madan"
 date: "24/09/2020"
 output: html_document
 ---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,warning = FALSE,message = FALSE)
+```
+
 ```{r}
 library(tidyverse)
 dataset <- read_csv("book_reviews.csv")
