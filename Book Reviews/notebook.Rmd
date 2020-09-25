@@ -4,3 +4,60 @@ author: "Himanshu Madan"
 date: "24/09/2020"
 output: html_document
 ---
+```{r}
+library(tidyverse)
+dataset <- read_csv("book_reviews.csv")
+```
+
+```{r}
+print("Dimensions of dataset: ")
+dim(dataset)
+
+```
+```{r}
+colnames(dataset)
+
+```
+```{r}
+for (c in colnames(dataset)){
+  print(typeof(dataset[[c]]))
+}
+```
+
+```{r}
+for (c in colnames(dataset)) {
+  print("Unique values in the column:")
+  print(c)
+  print(unique(dataset[[c]]))
+  print("")
+}
+```
+
+```{r}
+clean_data = dataset %>% 
+  filter(!is.na(review))
+dim(clean_data)
+```
+
+```{r}
+clean_data <- clean_data %>% 
+  mutate(
+    state = case_when(
+      state == "California" ~ "CA",
+      state == "New York" ~ "NY",
+      state == "Texas" ~ "TX",
+      state == "Florida" ~ "FL",
+      TRUE ~ state # ignore cases where it's already postal code
+    )
+  )
+```
+
+```{r}
+clean_data %>% 
+  group_by(book) %>% 
+  summarize(
+    purchased = n()
+  ) %>% 
+  arrange(-purchased)
+```
+
