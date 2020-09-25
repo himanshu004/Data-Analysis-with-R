@@ -5,6 +5,10 @@ date: "24/09/2020"
 output: html_document
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
 Importing the data (from Kaggle: https://www.kaggle.com/lin0li/covid19testing)
 ```{r echo=FALSE}
 library(readr)
